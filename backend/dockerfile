@@ -1,0 +1,33 @@
+# 🐍 Use official Python slim image
+FROM python:3.10-slim
+
+# 🛠️ Install system dependencies for dlib
+RUN apt-get update && \
+    apt-get install -y \
+        build-essential \
+        cmake \
+        libboost-all-dev \
+        python3-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# 📁 Set working directory
+WORKDIR /app
+
+# 📝 Copy requirements first (to leverage Docker cache)
+COPY requirements.txt .
+
+# 🧰 Upgrade pip
+RUN pip install --upgrade pip
+
+# 🧠 Install dlib first (avoids build errors)
+RUN pip install dlib==19.22.1
+
+# 📦 Install the rest of your dependencies
+RUN pip install -r requirements.txt
+
+# 📂 Copy the rest of your code
+COPY . .
+
+# 🚀 Define the default command to run your app
+# Adjust "app.py" if your entry point file has a different name
+CMD ["python", "app.py"]
