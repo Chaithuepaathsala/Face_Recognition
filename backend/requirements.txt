@@ -18,7 +18,7 @@ click==8.1.8
 colorama==0.4.6
 
 dnspython==2.6.1
-python-dotenv==1.1.1
+python-dotenv==1.0.1
 
 face-recognition==1.2.3
 face-recognition-models==0.1.3
