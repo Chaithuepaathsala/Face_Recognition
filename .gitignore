@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# Virtual environments
+venv/
+backend/venv/
+
+# Node.js
+face-recognition-react/node_modules/
+face-recognition-react/build/
+npm-debug.log
+yarn-error.log
+
+
+# Environment variables
+.env
+*.env
+
+# Editor/OS junk
+.DS_Store
+.vscode/
+.idea/
+
+# Custom folders to exclude
+event_react/
